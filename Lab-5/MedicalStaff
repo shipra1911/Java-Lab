@@ -1,0 +1,40 @@
+// Create a class Doctor add method surgery()  , extend Surgeon from this and inherit the method , create class Nurse extending doctor and add ,method treatement().
+
+// Define the Doctor class
+class Doctor {
+  // Method to simulate surgery
+  void surgery() {
+      System.out.println("Doctor is performing surgery.");
+  }
+}
+
+// Define the Surgeon class that extends Doctor
+class Surgeon extends Doctor {
+  // Surgeon inherits the surgery method from Doctor
+  // Additional methods specific to Surgeon can be added here
+}
+
+// Define the Nurse class that extends Doctor
+class Nurse extends Doctor {
+  // Method to simulate treatment
+  void treatment() {
+      System.out.println("Nurse is providing treatment.");
+  }
+}
+
+// Main class to demonstrate inheritance and method calls
+public class MedicalStaff {
+  public static void main(String[] args) {
+      // Create an instance of Surgeon
+      Surgeon surgeon = new Surgeon();
+      // Call the inherited surgery method
+      surgeon.surgery();
+
+      // Create an instance of Nurse
+      Nurse nurse = new Nurse();
+      // Call the inherited surgery method
+      nurse.surgery();
+      // Call the treatment method specific to Nurse
+      nurse.treatment();
+  }
+}
