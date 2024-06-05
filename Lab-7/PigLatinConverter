@@ -1,0 +1,59 @@
+// In Piglatin a word such as KING becomes INGKAY, TROUBLE becomes OUBLETRAY as so on. The first vowel of the original word becomes the starting of the translation and proceeding letter being shifted towards the end and followed by AY. Word that begins with a vowel is left unchanged. WAP to accept a word and convert in to Piglatin word.
+
+public class PigLatinConverter {
+
+  // Method to convert a given word to Pig Latin
+  public static String toPigLatin(String word) {
+      // Convert the word to lowercase to handle case insensitivity
+      word = word.toLowerCase();
+
+      // Check if the word starts with a vowel
+      if (startsWithVowel(word)) {
+          return word; // If it starts with a vowel, return the word as it is
+      }
+
+      // Find the position of the first vowel in the word
+      int firstVowelIndex = findFirstVowelIndex(word);
+
+      // If no vowel is found, return the word as it is
+      if (firstVowelIndex == -1) {
+          return word;
+      }
+
+      // Construct the Pig Latin word
+      String pigLatinWord = word.substring(firstVowelIndex) + word.substring(0, firstVowelIndex) + "ay";
+      return pigLatinWord;
+  }
+
+  // Helper method to check if a word starts with a vowel
+  private static boolean startsWithVowel(String word) {
+      char firstChar = word.charAt(0);
+      return isVowel(firstChar);
+  }
+
+  // Helper method to find the index of the first vowel in a word
+  private static int findFirstVowelIndex(String word) {
+      for (int i = 0; i < word.length(); i++) {
+          if (isVowel(word.charAt(i))) {
+              return i;
+          }
+      }
+      return -1; // Return -1 if no vowel is found
+  }
+
+  // Helper method to check if a character is a vowel
+  private static boolean isVowel(char c) {
+      return "aeiou".indexOf(c) != -1;
+  }
+
+  // Main method to test the Pig Latin converter
+  public static void main(String[] args) {
+      // Test words
+      String[] testWords = {"KING", "TROUBLE", "APPLE", "PYTHON", "HELLO"};
+
+      // Convert each word to Pig Latin and print the result
+      for (String word : testWords) {
+          System.out.println(word + " -> " + toPigLatin(word));
+      }
+  }
+}
