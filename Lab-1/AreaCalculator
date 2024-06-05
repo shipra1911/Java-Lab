@@ -1,0 +1,57 @@
+// Write a program  to  to calculate area of square rectangle and circle using switch case.
+
+import java.util.Scanner;
+
+public class AreaCalculator {
+    public static void main(String[] args) {
+        // Create a Scanner object to read input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Display options for the user to choose a shape
+        System.out.println("Choose a shape:");
+        System.out.println("1. Square");
+        System.out.println("2. Rectangle");
+        System.out.println("3. Circle");
+
+        // Read the user's choice
+        int choice = scanner.nextInt();
+
+        // Use a switch statement to handle different choices
+        switch (choice) {
+            case 1:
+                // If the user chose a square, prompt for the side length
+                System.out.println("Enter the side length of the square:");
+                double side = scanner.nextDouble();
+                // Calculate the area of the square
+                double squareArea = side * side;
+                // Print the area of the square
+                System.out.println("Area of the square: " + squareArea);
+                break;
+            case 2:
+                // If the user chose a rectangle, prompt for the length and width
+                System.out.println("Enter the length and width of the rectangle:");
+                double length = scanner.nextDouble();
+                double width = scanner.nextDouble();
+                // Calculate the area of the rectangle
+                double rectangleArea = length * width;
+                // Print the area of the rectangle
+                System.out.println("Area of the rectangle: " + rectangleArea);
+                break;
+            case 3:
+                // If the user chose a circle, prompt for the radius
+                System.out.println("Enter the radius of the circle:");
+                double radius = scanner.nextDouble();
+                // Calculate the area of the circle using the formula π * r^2
+                double circleArea = Math.PI * radius * radius;
+                // Print the area of the circle
+                System.out.println("Area of the circle: " + circleArea);
+                break;
+            default:
+                // If the user entered an invalid choice, display an error message
+                System.out.println("Invalid choice.");
+        }
+
+        // Close the Scanner object to prevent resource leak
+        scanner.close();
+    }
+}
