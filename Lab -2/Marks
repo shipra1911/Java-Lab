@@ -1,0 +1,30 @@
+// St. Xavier School displays a notice on the school notice board regarding admission in Std. XI for choosing different streams, according to marks obtained in English, Maths and Science in ICSE Examinations.
+
+import java.util.*;
+
+public class Marks {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter marks obtained in English:");
+        int engMarks = scanner.nextInt();
+
+        System.out.println("Enter marks obtained in Maths:");
+        int mathsMarks = scanner.nextInt();
+
+        System.out.println("Enter marks obtained in Science:");
+        int scienceMarks = scanner.nextInt();
+
+        if (engMarks >= 80 && mathsMarks >= 80 && scienceMarks >= 80) {
+            System.out.println("Stream Allotted: Pure Science");
+        } else if (engMarks >= 80 && scienceMarks >= 80 && mathsMarks >= 60) {
+            System.out.println("Stream Allotted: Bio. Science");
+        } else if (engMarks >= 60 && mathsMarks >= 60 && scienceMarks >= 60) {
+            System.out.println("Stream Allotted: Commerce");
+        } else {
+            System.out.println("No Stream Allotted");
+        }
+
+        scanner.close();
+    }
+}
