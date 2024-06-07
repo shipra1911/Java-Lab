@@ -1,0 +1,30 @@
+// Write a program to remove the duplicates and print the unique elements in  the arraylist.
+
+import java.util.ArrayList;  // Importing the ArrayList class
+import java.util.LinkedHashSet;  // Importing the LinkedHashSet class
+import java.util.Set;  // Importing the Set interface
+
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        // Creating an ArrayList with duplicate elements
+        ArrayList<String> listWithDuplicates = new ArrayList<>();
+        listWithDuplicates.add("Apple");
+        listWithDuplicates.add("Banana");
+        listWithDuplicates.add("Apple");
+        listWithDuplicates.add("Orange");
+        listWithDuplicates.add("Banana");
+        listWithDuplicates.add("Grapes");
+
+        // Printing the original list
+        System.out.println("Original List: " + listWithDuplicates);
+
+        // Using LinkedHashSet to remove duplicates and maintain insertion order
+        Set<String> uniqueSet = new LinkedHashSet<>(listWithDuplicates);
+
+        // Creating a new ArrayList from the Set to get unique elements
+        ArrayList<String> listWithoutDuplicates = new ArrayList<>(uniqueSet);
+
+        // Printing the list without duplicates
+        System.out.println("List without duplicates: " + listWithoutDuplicates);
+    }
+}
